@@ -1,0 +1,25 @@
+.header {
+  font-size: 5rem;
+  font-weight: 700;
+}
+
+.subheader {
+  font-size: 2.2rem;
+  font-weight: 300;
+  color: #E1E1E1;
+  width: 45vw;
+  text-align: center;
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 1200px) {
+  .subheader {
+    width: 60vw;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .subheader {
+    width: 80vw;
+  }
+}
