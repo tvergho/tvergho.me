@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import useWindowSize from 'utils/useWindowSize';
 import { FaAlignJustify } from 'react-icons/fa';
 import useDelay from 'utils/useDelay';
+import Link from 'next/link';
 
 const DesktopNav = ({ secondaryColor, links }) => {
   const [hovering, setHovering] = useState('');
@@ -68,7 +69,7 @@ const Header = ({
   return (
     <>
       <motion.header style={{ color: accentColor }}>
-        <div className="logo">TYLER VERGHO</div>
+        <div className="logo"><Link href="/">TYLER VERGHO</Link></div>
 
         {typeof window !== 'undefined' && width > 768 && (
           <DesktopNav secondaryColor={secondaryColor} links={links} />

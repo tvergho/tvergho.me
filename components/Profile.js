@@ -16,7 +16,7 @@ const ProfileItem = ({ icon: Icon, text, title }) => {
 };
 
 ProfileItem.propTypes = {
-  icon: PropTypes.element.isRequired,
+  icon: PropTypes.func.isRequired,
   text: PropTypes.string,
   title: PropTypes.string,
 };
