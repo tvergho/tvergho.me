@@ -24,16 +24,17 @@ ProfileItem.propTypes = {
 const ProfileText = () => {
   return (
     <div className={styles.col}>
-      <h1>Who am I?</h1>
-
-      <div>
-        <ProfileItem icon={MdPersonOutline} text="Tyler Vergho" title="name" />
-        <ProfileItem icon={MdPublic} text="California" title="location" />
-        <ProfileItem icon={MdMailOutline} text="tvergho@gmail.com" title="email" />
-        <ProfileItem icon={MdImportContacts} text="Computer Science" title="major" />
+      <div className={styles.colSection}>
+        <h1>Who am I?</h1>
+        <div>
+          <ProfileItem icon={MdPersonOutline} text="Tyler Vergho" title="name" />
+          <ProfileItem icon={MdPublic} text="California" title="location" />
+          <ProfileItem icon={MdMailOutline} text="tvergho@gmail.com" title="email" />
+          <ProfileItem icon={MdImportContacts} text="Computer Science" title="major" />
+        </div>
       </div>
 
-      <div>
+      <div className={styles.colSection}>
         <h2>Elevator Pitch</h2>
         <div>
           I’m a sophomore at <span style={{ fontWeight: 700 }}>Dartmouth College</span> with several years’ experience building websites and mobile apps using the latest technologies and frameworks.
@@ -52,6 +53,9 @@ const Profile = ({ inputRef, accentColor }) => {
   return (
     <motion.section id="profile" className="container" ref={inputRef} style={{ color: accentColor }}>
       <ProfileText />
+      <div className={styles.col}>
+        <img src={require('public/profile.png')} alt="Tyler Vergho" className={styles.profile} />
+      </div>
     </motion.section>
   );
 };

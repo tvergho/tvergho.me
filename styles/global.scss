@@ -24,7 +24,7 @@ button {
 }
 
 a:hover {
-  filter: brightness(130%);
+  color: #F1A208;
 }
 
 button:hover {
@@ -71,6 +71,7 @@ body {
   background-color: rgb(0,0,0);
   top: 0;
   left: 0;
+  z-index: 98;
 }
 
 .container {
@@ -158,6 +159,13 @@ header {
   flex-direction: row;
   padding: 0px 5vw;
   justify-content: flex-start;
+  position: relative;
+}
+
+@media screen and (max-height: 900px) {
+  #profile {
+    flex-direction: column-reverse;
+  }
 }
 
 @media screen and (max-width: 768px) {
