@@ -2,9 +2,9 @@ import React from 'react';
 
 const Skills = ({ inputRef }) => {
   return (
-    <div className="container" ref={inputRef}>
+    <section id="skills" className="container" ref={inputRef}>
       3
-    </div>
+    </section>
   );
 };
 

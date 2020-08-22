@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Contact = () => {
+const Contact = ({ inputRef }) => {
   return (
-    <div className="container">
+    <section id="contact" className="container" ref={inputRef}>
       5
-    </div>
+    </section>
   );
 };
 

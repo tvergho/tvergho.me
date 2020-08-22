@@ -10,7 +10,14 @@ const Home = () => {
   const profileRef = useRef(null);
   const skillsRef = useRef(null);
   const portfolioRef = useRef(null);
-  const header = [{ name: 'HOME', ref: homeRef }, { name: 'PROFILE', ref: profileRef }, { name: 'SKILLS', ref: skillsRef }, { name: 'PORTFOLIO', ref: portfolioRef }];
+  const contactRef = useRef(null);
+  const header = [
+    { name: 'HOME', ref: homeRef },
+    { name: 'PROFILE', ref: profileRef },
+    { name: 'SKILLS', ref: skillsRef },
+    { name: 'PORTFOLIO', ref: portfolioRef },
+    { name: 'CONTACT', ref: contactRef },
+  ];
 
   const scrollYProgress = useMotionValue(0);
   const background = useTransform(scrollYProgress, [0, 0.25, 0.5, 0.75, 1], ['#0D1B2A', '#1B263B', '#415A77', '#6281A9', '#E0E1DD']);
@@ -31,16 +38,16 @@ const Home = () => {
   return (
     <>
       <NextSeo
-        title="Home"
-        description="Description."
+        title="Tyler Vergho"
+        description="Hi, I'm Tyler - a Dartmouth CS student based in California interested in web and mobile app development. Check out my projects and learn more about me."
       />
       <motion.div className="page" style={{ backgroundColor: background }}>
         <Header accentColor={accentColor} secondaryColor={secondaryColor} links={header} />
         <Intro inputRef={homeRef} accentColor={accentColor} />
-        <Profile inputRef={profileRef} />
+        <Profile inputRef={profileRef} accentColor={accentColor} />
         <Skills inputRef={skillsRef} />
         <Portfolio inputRef={portfolioRef} />
-        <Contact />
+        <Contact inputRef={contactRef} />
       </motion.div>
     </>
   );
