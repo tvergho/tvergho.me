@@ -1,0 +1,60 @@
+$accent: #0C739D;
+
+.contact {
+  padding-top: 120px;
+  padding-bottom: 5vh;
+}
+
+.header {
+  color: #31434A;
+  font-size: 5rem;
+  font-weight: 700;
+  margin: 0px;
+  text-align: center;
+}
+
+.socialGroup {
+  margin: auto auto;
+  color: $accent;
+  font-size: 2rem;
+  font-weight: 300;
+  text-align: center;
+
+  .subheader {
+    font-weight: 400;
+    margin-bottom: 10px;
+    margin-top: 0px;
+  }
+}
+
+.icons {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+
+  a:hover {
+    filter: brightness(130%);
+  }
+
+  svg {
+    margin: 0px 10px;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .icons {
+    svg {
+      width: 75px;
+      height: 75px;
+    }
+  }
+}
+
+@media screen and (max-height: 600px) {
+  .socialGroup {
+    scroll-snap-align: start;
+    padding-top: 80px;
+    margin-top: -20px;
+  }
+}
