@@ -1,3 +1,5 @@
+$orange: #F1A208;
+
 * {
   box-sizing: border-box; 
   font-family: Lato, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
@@ -24,7 +26,7 @@ button {
 }
 
 a:hover {
-  color: #F1A208;
+  color: $orange;
 }
 
 a:active {

@@ -24,11 +24,9 @@ const PortfolioSlide = ({
       const heightRatio = maxHeight / naturalHeight;
 
       if (widthRatio <= heightRatio) {
-        console.log('resize width', naturalHeight, maxWidth);
         setHeight(naturalHeight * (maxWidth / naturalWidth));
         setWidth(maxWidth);
       } else {
-        console.log('resize height', naturalWidth, maxHeight);
         setWidth(naturalWidth * (maxHeight / naturalHeight));
         setHeight(maxHeight);
       }
@@ -39,6 +37,13 @@ const PortfolioSlide = ({
     setShowBackdrop(true);
   };
 
+  const onClick = (e) => {
+    if (!showBackdrop) {
+      e.stopPropagation();
+      setShowBackdrop(true);
+    }
+  };
+
   const onUnhover = () => {
     setShowBackdrop(false);
   };
@@ -46,7 +51,7 @@ const PortfolioSlide = ({
   return (
     <div className={styles.emblaSlide}>
       <div className={styles.inner}>
-        <img src={image} alt={title} onMouseEnter={onHover} onMouseLeave={onUnhover} ref={imgRef} onClick={onHover} style={{ width, height }} />
+        <img src={image} alt={title} onMouseEnter={onHover} onMouseLeave={onUnhover} ref={imgRef} onClick={onClick} style={{ width, height }} />
         <Backdrop
           onMouseEnter={onHover}
           onMouseLeave={onUnhover}

@@ -1,8 +1,10 @@
+/* eslint-disable jsx-a11y/control-has-associated-label */
 import React from 'react';
 import styles from 'styles/portfolio.module.scss';
 import { motion } from 'framer-motion';
 import useDelay from 'utils/useDelay';
 import PropTypes from 'prop-types';
+import { FaExternalLinkAlt } from 'react-icons/fa';
 
 const Backdrop = ({
   onMouseEnter, onMouseLeave, showBackdrop, height, width, title, description, technologies, href,
@@ -11,20 +13,19 @@ const Backdrop = ({
   const delayOpen = useDelay(showBackdrop, 300, true, false);
 
   return (
-    <a href={href} target="_blank" rel="noreferrer">
-      <motion.div
-        className={styles.backdrop}
-        onMouseEnter={onMouseEnter}
-        onMouseLeave={onMouseLeave}
-        animate={{ opacity: showBackdrop ? 0.9 : 0 }}
-        style={{ display: delayClose ? '' : 'none', height, width }}
-      >
-        <h1>{title}</h1>
-        <motion.div className={styles.divider} animate={{ width: delayOpen ? '80%' : '0%' }} transition={{ duration: delayOpen ? 0.6 : 0 }} />
-        <div className={styles.desc}>{description}</div>
-        <div className={styles.tech}>{technologies.join(', ')}</div>
-      </motion.div>
-    </a>
+    <motion.div
+      className={styles.backdrop}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      animate={{ opacity: showBackdrop ? 0.9 : 0 }}
+      style={{ display: delayClose ? '' : 'none', height, width }}
+    >
+      <a href={href} target="_blank" rel="noreferrer"><FaExternalLinkAlt size="1.5rem" /></a>
+      <h1>{title}</h1>
+      <motion.div className={styles.divider} animate={{ width: delayOpen ? '80%' : '0%' }} transition={{ duration: delayOpen ? 0.6 : 0 }} />
+      <div className={styles.desc}>{description}</div>
+      <div className={styles.tech}>{technologies.join(', ')}</div>
+    </motion.div>
   );
 };
 
