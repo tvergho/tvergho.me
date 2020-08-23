@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import useWindowSize from 'utils/useWindowSize';
 import styles from 'styles/portfolio.module.scss';
 import PropTypes from 'prop-types';
@@ -10,11 +10,20 @@ const PortfolioSlide = ({
   const [showBackdrop, setShowBackdrop] = useState(false);
 
   const imgRef = useRef(null);
+  const setRef = useCallback((node) => {
+    setDimensions();
+    imgRef.current = node;
+  }, [])
+
   const { width: windowWidth, height: windowHeight } = useWindowSize();
   const [width, setWidth] = useState();
   const [height, setHeight] = useState();
 
   useEffect(() => {
+    setDimensions();
+  }, [windowWidth, windowHeight]);
+
+  const setDimensions = () => {
     if (imgRef?.current) {
       const { naturalWidth, naturalHeight } = imgRef.current;
       const maxWidth = windowWidth - 20;
@@ -31,7 +40,7 @@ const PortfolioSlide = ({
         setHeight(maxHeight);
       }
     }
-  }, [imgRef, windowWidth, windowHeight]);
+  }
 
   const onHover = () => {
     setShowBackdrop(true);
@@ -51,7 +60,7 @@ const PortfolioSlide = ({
   return (
     <div className={styles.emblaSlide}>
       <div className={styles.inner}>
-        <img src={image} alt={title} onMouseEnter={onHover} onMouseLeave={onUnhover} ref={imgRef} onClick={onClick} style={{ width, height }} />
+        <img src={image} alt={title} onMouseEnter={onHover} onMouseLeave={onUnhover} ref={setRef} onClick={onClick} style={{ width, height }} />
         <Backdrop
           onMouseEnter={onHover}
           onMouseLeave={onUnhover}
