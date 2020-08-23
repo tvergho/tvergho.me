@@ -15,8 +15,8 @@ const Backdrop = ({
   return (
     <motion.div
       className={styles.backdrop}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
+      onMouseEnter={() => { if(showBackdrop) { onMouseEnter(); } }}
+      onMouseLeave={() => { if(showBackdrop) { onMouseLeave(); } }}
       animate={{ opacity: showBackdrop ? 0.9 : 0 }}
       style={{ display: delayClose ? '' : 'none', height, width }}
     >
