@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
@@ -69,7 +70,7 @@ const Header = ({
   return (
     <>
       <motion.header style={{ color: accentColor }}>
-        <div className="logo"><Link href="/">TYLER VERGHO</Link></div>
+        <div className="logo"><Link href="/"><a>TYLER VERGHO</a></Link></div>
 
         {typeof window !== 'undefined' && width > 768 && (
           <DesktopNav secondaryColor={secondaryColor} links={links} />

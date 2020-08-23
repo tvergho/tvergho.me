@@ -17,8 +17,8 @@ const SkillItem = ({
     <div className={styles.skill}>
       <Icon />
 
-      <div className={styles.skillContent}>
-        <div className={styles.skillName}>{name}</div>
+      <div className={styles.content}>
+        <div className={styles.name}>{name}</div>
         <div className={styles.progress}>
           <motion.div
             className={styles.progressFill}
