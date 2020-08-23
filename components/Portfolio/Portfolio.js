@@ -44,7 +44,7 @@ const Portfolio = ({ inputRef }) => {
             image={require('public/scribble.png')}
             description="Scribble is a machine learning powered, real-time Pictionary clone for Android."
             technologies={['Android', 'Java', 'Machine Learning']}
-            href="/scribble.html"
+            href="/scribble/scribble.html"
           />
         </div>
       </EmblaCarouselReact>
