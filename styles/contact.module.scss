@@ -10,6 +10,7 @@ $accent: #0C739D;
   font-size: 5rem;
   font-weight: 700;
   margin: 0px;
+  margin-top: 5vh;
   text-align: center;
 }
 
@@ -31,6 +32,7 @@ $accent: #0C739D;
   display: flex;
   flex-direction: row;
   margin-top: 20px;
+  align-items: center;
 
   a:hover {
     filter: brightness(130%);
@@ -42,6 +44,12 @@ $accent: #0C739D;
   }
 }
 
+@media screen and (max-height: 600px) {
+  .socialGroup {
+    margin: 20px auto;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .icons {
     svg {
@@ -49,12 +57,8 @@ $accent: #0C739D;
       height: 75px;
     }
   }
-}
-
-@media screen and (max-height: 600px) {
-  .socialGroup {
-    scroll-snap-align: start;
-    padding-top: 80px;
-    margin-top: -20px;
+  .header {
+    font-size: 3.5rem;
+    margin-top: 0px;
   }
 }
