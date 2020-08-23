@@ -11,8 +11,8 @@ const PortfolioSlide = ({
 
   const imgRef = useRef(null);
   const setRef = useCallback((node) => {
-    setDimensions();
     imgRef.current = node;
+    setDimensions();
   }, [])
 
   const { width: windowWidth, height: windowHeight } = useWindowSize();
