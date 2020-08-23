@@ -1,0 +1,129 @@
+$silver: #E1E1E1;
+
+.col {
+  display: flex;
+  flex: 0 1 60%;
+  flex-direction: column;
+  font-size: 1.4rem;
+  font-weight: 300;
+
+  h1 {
+    font-size: 4.5rem;
+    color: $silver;
+    font-weight: 700;
+    margin-bottom: 0px;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: $silver;
+    margin-bottom: 20px;
+  }
+}
+.col:last-child {
+  flex: 0 1 40%;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  color: inherit;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 24px;
+
+  div {
+    margin-left: 15px;
+    padding-bottom: 2px;
+  }
+}
+
+.profile {
+  max-width: 37vw;
+  height: auto;
+  border-radius: 500px;
+  align-self: flex-end;
+}
+
+@media screen and (max-width: 1200px) {
+  .col {
+    font-size: 1.3rem;
+  }
+}
+
+// Switches layout when height of screen gets too small. 
+@media screen and (max-height: 900px) {
+  .col {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    font-size: 1.2rem;
+
+    .colSection {
+      flex: 0 1 50%;
+      margin: 10px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 0px;
+    }
+  }
+  .item {
+    justify-content: center;
+  }
+  .profile {
+    margin-top: 80px;
+    max-height: 30vh;
+    width: auto;
+  }
+}
+
+// Adds snap when bottom text gets cut off.
+@media screen and (max-height: 768px) {
+  .col {
+    h1 {
+      scroll-snap-align: start;
+      padding-top: 80px;
+      margin-top: -80px;
+    }
+  }
+}
+
+// Mobile layout.
+@media screen and (max-width: 768px) {
+  .col {
+    flex: 1 1 100%;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    h1 {
+      padding-top: 20px;
+      scroll-snap-align: none;
+    }
+    h2:first-child {
+      scroll-snap-align: start;
+      padding-top: 80px;
+      margin-top: -80px;
+    }
+  }
+  .item {
+    justify-content: center;
+  }
+  .item:last-child {
+    margin-bottom: 100px;
+  }
+  .profile {
+    max-width: 37vw;
+    height: auto;
+    margin-top: 100px;
+    margin-bottom: 20px;
+    margin-left: 25px;
+    align-self: center;
+    position: relative;
+  }
+}

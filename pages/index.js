@@ -1,65 +1,56 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import React, { useEffect, useRef } from 'react';
+import { NextSeo } from 'next-seo';
+import {
+  Contact, Intro, Portfolio, Profile, Skills, Header,
+} from 'components';
+import { motion, useMotionValue, useTransform } from 'framer-motion';
 
-export default function Home() {
+const Home = () => {
+  const homeRef = useRef(null);
+  const profileRef = useRef(null);
+  const skillsRef = useRef(null);
+  const portfolioRef = useRef(null);
+  const contactRef = useRef(null);
+  const header = [
+    { name: 'HOME', ref: homeRef },
+    { name: 'PROFILE', ref: profileRef },
+    { name: 'SKILLS', ref: skillsRef },
+    { name: 'PORTFOLIO', ref: portfolioRef },
+    { name: 'CONTACT', ref: contactRef },
+  ];
+
+  const scrollYProgress = useMotionValue(0);
+  const background = useTransform(scrollYProgress, [0, 0.25, 0.5, 0.75, 1], ['#0D1B2A', '#1B263B', '#415A77', '#6281A9', '#E0E1DD']);
+  const accentColor = useTransform(scrollYProgress, [0, 0.25, 0.5, 0.75, 1], ['#58FCF2', '#68F3E9', '#B3FCF8', '#E0FFFD', '#0C739D']);
+  const secondaryColor = useTransform(scrollYProgress, [0, 1], ['#F1A208', '#FF9411']);
+
+  const onScroll = () => {
+    const { body } = document;
+    const scrollDist = body.scrollTop / (body.scrollHeight - window.innerHeight);
+    scrollYProgress.set(scrollDist);
+  };
+
+  useEffect(() => {
+    document.body.addEventListener('scroll', onScroll);
+    return () => document.body.removeEventListener('scroll', onScroll);
+  }, []);
+
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <>
+      <NextSeo
+        title="Tyler Vergho"
+        description="Hi, I'm Tyler - a Dartmouth CS student based in California interested in web and mobile app development. Check out my projects and learn more about me."
+      />
+      <motion.div className="page" style={{ backgroundColor: background }}>
+        <Header accentColor={accentColor} secondaryColor={secondaryColor} links={header} />
+        <Intro inputRef={homeRef} accentColor={accentColor} />
+        <Profile inputRef={profileRef} accentColor={accentColor} />
+        <Skills inputRef={skillsRef} />
+        <Portfolio inputRef={portfolioRef} />
+        <Contact inputRef={contactRef} />
+      </motion.div>
+    </>
+  );
+};
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  )
-}
+export default Home;
