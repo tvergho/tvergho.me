@@ -3,6 +3,7 @@ import React, { useCallback } from 'react';
 import { useEmblaCarousel } from 'embla-carousel/react';
 import styles from 'styles/portfolio.module.scss';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import useScrollPosition from 'utils/useScrollPosition';
 import PortfolioSlide from './PortfolioSlide';
 
 const Portfolio = ({ inputRef }) => {
@@ -10,6 +11,7 @@ const Portfolio = ({ inputRef }) => {
 
   const scrollPrev = useCallback(() => embla && embla.scrollPrev(), [embla]);
   const scrollNext = useCallback(() => embla && embla.scrollNext(), [embla]);
+  const scrolled = useScrollPosition(inputRef, 80);
 
   return (
     <section id="portfolio" className="container" ref={inputRef} style={{ position: 'relative' }}>
@@ -24,6 +26,7 @@ const Portfolio = ({ inputRef }) => {
             description="RecMe is an app that makes it easy to share businesses with friends and earn cashback rewards."
             technologies={['React Native', 'React', 'AWS', 'Serverless', 'GraphQL']}
             href="https://recme.app/"
+            scrolled={scrolled}
           />
           <PortfolioSlide
             title="High Frequency Tones"
@@ -31,6 +34,7 @@ const Portfolio = ({ inputRef }) => {
             description="Precisely generate sound waves and test the limits of what you can hear."
             technologies={['React Native', 'tone.js']}
             href="https://apps.apple.com/us/app/id1511601653"
+            scrolled={scrolled}
           />
           <PortfolioSlide
             title="nchtr.io"
@@ -38,6 +42,7 @@ const Portfolio = ({ inputRef }) => {
             description="nchtr.io allows you to crowdsource your texts for when you have no clue how to respond."
             technologies={['React', 'node.js', 'Firebase', 'AWS S3']}
             href="http://nchtr.io/"
+            scrolled={scrolled}
           />
           <PortfolioSlide
             title="Scribble"
@@ -45,6 +50,7 @@ const Portfolio = ({ inputRef }) => {
             description="Scribble is a machine learning powered, real-time Pictionary clone for Android."
             technologies={['Android', 'Java', 'Machine Learning']}
             href="/scribble/scribble.html"
+            scrolled={scrolled}
           />
         </div>
       </EmblaCarouselReact>

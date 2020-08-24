@@ -1,27 +1,19 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, {
+  useState, useEffect, useRef, useCallback,
+} from 'react';
 import useWindowSize from 'utils/useWindowSize';
 import styles from 'styles/portfolio.module.scss';
 import PropTypes from 'prop-types';
 import Backdrop from './Backdrop';
 
 const PortfolioSlide = ({
-  image, title, description, technologies, href,
+  image, title, description, technologies, href, scrolled,
 }) => {
   const [showBackdrop, setShowBackdrop] = useState(false);
-
   const imgRef = useRef(null);
-  const setRef = useCallback((node) => {
-    imgRef.current = node;
-    setDimensions();
-  }, [])
-
   const { width: windowWidth, height: windowHeight } = useWindowSize();
   const [width, setWidth] = useState();
   const [height, setHeight] = useState();
-
-  useEffect(() => {
-    setDimensions();
-  }, [windowWidth, windowHeight]);
 
   const setDimensions = () => {
     if (imgRef?.current) {
@@ -40,7 +32,16 @@ const PortfolioSlide = ({
         setHeight(maxHeight);
       }
     }
-  }
+  };
+
+  const setRef = useCallback((node) => {
+    imgRef.current = node;
+    setDimensions();
+  }, []);
+
+  useEffect(() => {
+    setDimensions();
+  }, [windowWidth, windowHeight, scrolled]);
 
   const onHover = () => {
     setShowBackdrop(true);
@@ -83,6 +84,7 @@ PortfolioSlide.propTypes = {
   description: PropTypes.string,
   technologies: PropTypes.arrayOf(PropTypes.string),
   href: PropTypes.string,
+  scrolled: PropTypes.bool,
 };
 
 export default PortfolioSlide;
