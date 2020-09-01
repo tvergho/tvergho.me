@@ -21,11 +21,11 @@ const Portfolio = ({ inputRef }) => {
       <EmblaCarouselReact className={styles.emblaViewport}>
         <div className={styles.emblaContainer}>
           <PortfolioSlide
-            title="RecMe"
-            image={require('public/recme.png')}
-            description="RecMe is an app that makes it easy to share businesses with friends and earn cashback rewards."
+            title="RecTree"
+            image={require('public/rectree.png')}
+            description="RecTree is an app that makes it easy to share businesses with friends and earn cashback rewards."
             technologies={['React Native', 'React', 'AWS', 'Serverless', 'GraphQL']}
-            href="https://recme.app/"
+            href="https://rectree.app/"
             scrolled={scrolled}
           />
           <PortfolioSlide

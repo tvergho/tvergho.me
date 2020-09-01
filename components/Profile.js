@@ -38,7 +38,7 @@ const ProfileText = () => {
         <h2>Elevator Pitch</h2>
         <div>
           I’m a sophomore at <span style={{ fontWeight: 700 }}>Dartmouth College</span> with several years’ experience building websites and mobile apps using the latest technologies and frameworks.
-          Currently, I’m working on <a href="https://recme.app" target="_blank" rel="noreferrer"><span style={{ fontWeight: 700 }}>RecMe</span></a>,
+          Currently, I’m working on <a href="https://rectree.app" target="_blank" rel="noreferrer"><span style={{ fontWeight: 700 }}>RecTree</span></a>,
           an app that rewards sharing businesses with your friends.
         </div>
 
