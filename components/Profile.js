@@ -54,7 +54,7 @@ const Profile = ({ inputRef, accentColor }) => {
     <motion.section id="profile" className="container" ref={inputRef} style={{ color: accentColor }}>
       <ProfileText />
       <div className={styles.col}>
-        <img src={require('public/profile.png')} alt="Tyler Vergho" className={styles.profile} />
+        <img src={require('public/profile.jpg')} alt="Tyler Vergho" className={styles.profile} />
       </div>
     </motion.section>
   );
