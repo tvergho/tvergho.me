@@ -31,7 +31,7 @@ const Home = () => {
   };
 
   useEffect(() => {
-    document.body.addEventListener('scroll', onScroll);
+    document.body.addEventListener('scroll', onScroll, { passive: true });
     return () => document.body.removeEventListener('scroll', onScroll);
   }, []);
 
