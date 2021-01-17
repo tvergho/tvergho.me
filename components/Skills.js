@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import useScrollPosition from 'utils/useScrollPosition';
 import useDelay from 'utils/useDelay';
 import {
-  Javascript, ReactIcon, ReactNative, HTML, Android, WebDesign, Python, AWS,
+  Javascript, ReactIcon, ReactNative, HTML, Android, WebDesign, WordPress, AWS,
 } from './frameworkLogos';
 
 const SkillItem = ({
@@ -54,9 +54,9 @@ const Skills = ({ inputRef }) => {
         </div>
         <div className={styles.col}>
           <SkillItem icon={Android} name="Android" progress="75%" scrolled={scrolled} />
-          <SkillItem icon={WebDesign} name="Web Design" progress="55%" scrolled={scrolled} />
-          <SkillItem icon={Python} name="Python" progress="60%" scrolled={scrolled} />
-          <SkillItem icon={AWS} name="AWS" progress="65%" scrolled={scrolled} />
+          <SkillItem icon={WebDesign} name="Web Design" progress="60%" scrolled={scrolled} />
+          <SkillItem icon={WordPress} name="WordPress" progress="65%" scrolled={scrolled} />
+          <SkillItem icon={AWS} name="AWS" progress="70%" scrolled={scrolled} />
         </div>
       </div>
     </section>

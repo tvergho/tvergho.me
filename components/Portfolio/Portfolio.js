@@ -29,6 +29,14 @@ const Portfolio = ({ inputRef }) => {
             scrolled={scrolled}
           />
           <PortfolioSlide
+            title="IDEA Lab"
+            image={require('public/idea-lab.png')}
+            description="I designed and developed the website for the Dartmouth IDEA Lab, which develops solutions for problems in anesthesia and healthcare."
+            technologies={['React', 'Next.js', 'Sanity CMS']}
+            href="https://dartmouthidea.org/"
+            scrolled={scrolled}
+          />
+          <PortfolioSlide
             title="High Frequency Tones"
             image={require('public/frequency.png')}
             description="Precisely generate sound waves and test the limits of what you can hear."
@@ -37,11 +45,11 @@ const Portfolio = ({ inputRef }) => {
             scrolled={scrolled}
           />
           <PortfolioSlide
-            title="nchtr.io"
-            image={require('public/nchtr.png')}
-            description="nchtr.io allows you to crowdsource your texts for when you have no clue how to respond."
-            technologies={['React', 'node.js', 'Firebase', 'AWS S3']}
-            href="http://nchtr.io/"
+            title="Brosterhous Storage"
+            image={require('public/brosterhous.png')}
+            description="Revamped the website for Brosterhous Storage, using server-side rendering and Jamstack to replace outdated WordPress infrastructure."
+            technologies={['React', 'Next.js']}
+            href="https://brosterhousstorage.com/"
             scrolled={scrolled}
           />
           <PortfolioSlide
