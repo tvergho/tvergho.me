@@ -45,14 +45,6 @@ const Portfolio = ({ inputRef }) => {
             scrolled={scrolled}
           />
           <PortfolioSlide
-            title="Brosterhous Storage"
-            image={require('public/brosterhous.png')}
-            description="Revamped the website for Brosterhous Storage, using server-side rendering and Jamstack to replace outdated WordPress infrastructure."
-            technologies={['React', 'Next.js']}
-            href="https://brosterhousstorage.com/"
-            scrolled={scrolled}
-          />
-          <PortfolioSlide
             title="Scribble"
             image={require('public/scribble.png')}
             description="Scribble is a machine learning powered, real-time Pictionary clone for Android."
