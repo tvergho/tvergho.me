@@ -21,12 +21,12 @@ const Portfolio = ({ inputRef }) => {
       <EmblaCarouselReact className={styles.emblaViewport}>
         <div className={styles.emblaContainer}>
           <PortfolioSlide
-            title="PrizeRing"
-            image={require('public/prizering.png')}
-            description="PrizeRing is a live mobile game show app where users can repurpose social media content to win real money.
-            Users create and participate in live game shows, creating a fulfilling interactive entertainment experience. Developed with the DALI Lab."
-            technologies={['React Native', 'Plaid', 'Express.js', 'MongoDB', 'AWS S3', 'Firebase']}
-            href="https://www.prizering.io/"
+            title="TroutRoutes"
+            image={require('public/trout.png')}
+            description="I was contracted to develop the web platform for TroutRoutes, a trout fishing application with a proprietary database of over 23,000 trout streams across the US.
+            The web application allows users to create and share custom markup data and provides real-time access to detailed geographic information about streams and access points."
+            technologies={['React.js', 'Mapbox', 'Firebase', 'Stripe', 'Google Cloud Functions', 'WordPress', 'Bootstrap', 'Node.js']}
+            href="https://maps.troutinsights.com/"
             scrolled={scrolled}
           />
           <PortfolioSlide
@@ -35,6 +35,15 @@ const Portfolio = ({ inputRef }) => {
             description="A search engine for open-source debate evidence. Scrapes the high school and policy debate wikis for speech documents, and generates a publicly searchable database of cards."
             technologies={['Python', 'React', 'Next.js', 'Typescript', 'AWS Opensearch', 'Docker', 'AWS DynamoDB']}
             href="https://logos-debate.netlify.app/"
+            scrolled={scrolled}
+          />
+          <PortfolioSlide
+            title="PrizeRing"
+            image={require('public/prizering.png')}
+            description="PrizeRing is a live mobile game show app where users can repurpose social media content to win real money.
+            Users create and participate in live game shows, creating a fulfilling interactive entertainment experience. Developed with the DALI Lab."
+            technologies={['React Native', 'Plaid', 'Express.js', 'MongoDB', 'AWS S3', 'Firebase']}
+            href="https://www.prizering.io/"
             scrolled={scrolled}
           />
           <PortfolioSlide
