@@ -21,9 +21,26 @@ const Portfolio = ({ inputRef }) => {
       <EmblaCarouselReact className={styles.emblaViewport}>
         <div className={styles.emblaContainer}>
           <PortfolioSlide
+            title="PrizeRing"
+            image={require('public/prizering.png')}
+            description="PrizeRing is a live mobile game show app where users can repurpose social media content to win real money.
+            Users create and participate in live game shows, creating a fulfilling interactive entertainment experience. Developed with the DALI Lab."
+            technologies={['React Native', 'Plaid', 'Express.js', 'MongoDB', 'AWS S3', 'Firebase']}
+            href="https://www.prizering.io/"
+            scrolled={scrolled}
+          />
+          <PortfolioSlide
+            title="Logos"
+            image={require('public/logos.png')}
+            description="A search engine for open-source debate evidence. Scrapes the high school and policy debate wikis for speech documents, and generates a publicly searchable database of cards."
+            technologies={['Python', 'React', 'Next.js', 'Typescript', 'AWS Opensearch', 'Docker', 'AWS DynamoDB']}
+            href="https://logos-debate.netlify.app/"
+            scrolled={scrolled}
+          />
+          <PortfolioSlide
             title="RecTree"
             image={require('public/rectree.png')}
-            description="RecTree is an app that makes it easy to share businesses with friends and earn cashback rewards."
+            description="RecTree is a mobile application that makes it easy to share businesses with friends and earn cashback rewards."
             technologies={['React Native', 'React', 'AWS', 'Serverless', 'GraphQL']}
             href="https://rectree.app/"
             scrolled={scrolled}

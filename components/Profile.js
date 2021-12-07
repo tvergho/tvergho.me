@@ -37,9 +37,9 @@ const ProfileText = () => {
       <div className={styles.colSection}>
         <h2>Elevator Pitch</h2>
         <div>
-          I’m a sophomore at <span style={{ fontWeight: 700 }}>Dartmouth College</span> with several years’ experience building websites and mobile apps using the latest technologies and frameworks.
-          Currently, I’m working on <a href="https://rectree.app" target="_blank" rel="noreferrer"><span style={{ fontWeight: 700 }}>RecTree</span></a>,
-          an app that rewards sharing businesses with your friends.
+          I’m a junior at <span style={{ fontWeight: 700 }}>Dartmouth College</span> with several years’ experience building websites and mobile apps using the latest technologies and frameworks.
+          Currently the software development lead at the <a href="http://dali.dartmouth.edu/" target="_blank" rel="noreferrer"><span style={{ fontWeight: 700 }}>Dartmouth DALI Lab</span></a>.
+          You can access my resume <a href="/resume.pdf" target="_blank" rel="noreferrer"><span style={{ fontWeight: 700 }}>here</span></a>.
         </div>
 
         <h2>Other Interests</h2>
