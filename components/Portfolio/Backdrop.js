@@ -1,16 +1,23 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from 'styles/portfolio.module.scss';
 import { motion } from 'framer-motion';
 import useDelay from 'utils/useDelay';
 import PropTypes from 'prop-types';
 import { FaExternalLinkAlt } from 'react-icons/fa';
+import mixpanel from 'mixpanel-browser';
 
 const Backdrop = ({
   onMouseEnter, onMouseLeave, showBackdrop, height, width, title, description, technologies, href,
 }) => {
   const delayClose = useDelay(showBackdrop, 300, false, true);
   const delayOpen = useDelay(showBackdrop, 300, true, false);
+
+  useEffect(() => {
+    mixpanel.track_links(`#${title} a`, 'Portfolio: Clicked on project', {
+      title,
+    });
+  }, []);
 
   return (
     <motion.div
@@ -19,6 +26,7 @@ const Backdrop = ({
       onMouseLeave={() => { if (showBackdrop) { onMouseLeave(); } }}
       animate={{ opacity: showBackdrop ? 0.9 : 0 }}
       style={{ display: delayClose ? '' : 'none', height, width }}
+      id={title}
     >
       <a href={href} target="_blank" rel="noreferrer"><FaExternalLinkAlt size="1.5rem" /></a>
       <h1>{title}</h1>

@@ -4,6 +4,7 @@ import React, {
 import useWindowSize from 'utils/useWindowSize';
 import styles from 'styles/portfolio.module.scss';
 import PropTypes from 'prop-types';
+import mixpanel from 'mixpanel-browser';
 import Backdrop from './Backdrop';
 
 const PortfolioSlide = ({
@@ -45,6 +46,7 @@ const PortfolioSlide = ({
 
   const onHover = () => {
     setShowBackdrop(true);
+    mixpanel.track('Portfolio Slide Hover', { title, description, technologies });
   };
 
   const onClick = (e) => {
