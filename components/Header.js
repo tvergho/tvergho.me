@@ -6,9 +6,18 @@ import useWindowSize from 'utils/useWindowSize';
 import { FaAlignJustify } from 'react-icons/fa';
 import useDelay from 'utils/useDelay';
 import Link from 'next/link';
+import mixpanel from 'mixpanel-browser';
 
 const DesktopNav = ({ secondaryColor, links }) => {
   const [hovering, setHovering] = useState('');
+
+  const onClick = (ref, name) => {
+    if (ref) ref.current.scrollIntoView({ behavior: 'smooth' });
+
+    mixpanel.track('Desktop Navigation Click', {
+      name,
+    });
+  };
 
   return (
     <div className="nav-links">
@@ -18,7 +27,7 @@ const DesktopNav = ({ secondaryColor, links }) => {
           <motion.button
             type="button"
             name={name}
-            onClick={() => { if (ref) ref.current.scrollIntoView({ behavior: 'smooth' }); }}
+            onClick={() => { onClick(ref, name); }}
             style={hovering === name ? { color: secondaryColor } : {}}
             onMouseEnter={(e) => { setHovering(e.target.name); }}
             onMouseLeave={() => { setHovering(''); }}
@@ -32,9 +41,13 @@ const DesktopNav = ({ secondaryColor, links }) => {
 };
 
 const MobileNav = ({ links, show, onChange }) => {
-  const onClick = (ref) => {
+  const onClick = (ref, name) => {
     if (ref) ref.current.scrollIntoView({ behavior: 'smooth' });
     onChange(false);
+
+    mixpanel.track('Desktop Navigation Click', {
+      name,
+    });
   };
 
   return (
@@ -49,7 +62,7 @@ const MobileNav = ({ links, show, onChange }) => {
             <button
               type="button"
               name={name}
-              onClick={() => { onClick(ref); }}
+              onClick={() => { onClick(ref, name); }}
               key={name}
             >{name}
             </button>

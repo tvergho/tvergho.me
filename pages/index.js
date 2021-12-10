@@ -4,6 +4,7 @@ import {
   Contact, Intro, Portfolio, Profile, Skills, Header,
 } from 'components';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
+import mixpanel from 'mixpanel-browser';
 
 const Home = () => {
   const homeRef = useRef(null);
@@ -32,6 +33,7 @@ const Home = () => {
 
   useEffect(() => {
     document.body.addEventListener('scroll', onScroll, { passive: true });
+    mixpanel.track('Page View', { page: 'Home' });
     return () => document.body.removeEventListener('scroll', onScroll);
   }, []);
 

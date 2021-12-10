@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from 'styles/profile.module.scss';
 import { motion } from 'framer-motion';
 import {
   MdPersonOutline, MdPublic, MdMailOutline, MdImportContacts,
 } from 'react-icons/md';
 import PropTypes from 'prop-types';
+import mixpanel from 'mixpanel-browser';
 
 const ProfileItem = ({ icon: Icon, text, title }) => {
   return (
@@ -22,6 +23,15 @@ ProfileItem.propTypes = {
 };
 
 const ProfileText = () => {
+  useEffect(() => {
+    mixpanel.track_links('#profile-text a', 'click profile link', (e) => {
+      return {
+        referrer: document.referrer,
+        url: e.getAttribute('href'),
+      };
+    });
+  }, []);
+
   return (
     <div className={styles.col}>
       <div className={styles.colSection}>
@@ -36,7 +46,7 @@ const ProfileText = () => {
 
       <div className={styles.colSection}>
         <h2>Elevator Pitch</h2>
-        <div>
+        <div id="profile-text">
           I’m a junior at <span style={{ fontWeight: 700 }}>Dartmouth College</span> with several years’ experience building websites and mobile apps using the latest technologies and frameworks.
           Currently the software development lead at the <a href="http://dali.dartmouth.edu/" target="_blank" rel="noreferrer"><span style={{ fontWeight: 700 }}>Dartmouth DALI Lab</span></a>.
           You can access my resume <a href="/resume.pdf" target="_blank" rel="noreferrer"><span style={{ fontWeight: 700 }}>here</span></a>.
