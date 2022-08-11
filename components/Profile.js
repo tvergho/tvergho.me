@@ -47,8 +47,8 @@ const ProfileText = () => {
       <div className={styles.colSection}>
         <h2>Elevator Pitch</h2>
         <div id="profile-text">
-          I’m a junior at <span style={{ fontWeight: 700 }}>Dartmouth College</span> with several years’ experience building websites and mobile apps using the latest technologies and frameworks.
-          Currently the software development lead at the <a href="http://dali.dartmouth.edu/" target="_blank" rel="noreferrer"><span style={{ fontWeight: 700 }}>Dartmouth DALI Lab</span></a>.
+          I’m a senior at <span style={{ fontWeight: 700 }}>Dartmouth College</span> with several years’ experience building websites and mobile apps using the latest technologies and frameworks.
+          Currently a software engineer at the <a href="http://dali.dartmouth.edu/" target="_blank" rel="noreferrer"><span style={{ fontWeight: 700 }}>Dartmouth DALI Lab</span></a>.
           You can access my resume <a href="/resume.pdf" target="_blank" rel="noreferrer"><span style={{ fontWeight: 700 }}>here</span></a>.
         </div>
 
