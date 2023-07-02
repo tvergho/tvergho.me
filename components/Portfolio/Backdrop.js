@@ -28,7 +28,7 @@ const Backdrop = ({
       style={{ display: delayClose ? '' : 'none', height, width }}
       id={title}
     >
-      <a href={href} target="_blank" rel="noreferrer"><FaExternalLinkAlt size="1.5rem" /></a>
+      {!!href && <a href={href} target="_blank" rel="noreferrer"><FaExternalLinkAlt size="1.5rem" /></a>}
       <h1>{title}</h1>
       <motion.div className={styles.divider} animate={{ width: delayOpen ? '80%' : '0%' }} transition={{ duration: delayOpen ? 0.6 : 0 }} />
       <div className={styles.desc}>{description}</div>

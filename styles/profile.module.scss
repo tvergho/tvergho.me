@@ -4,7 +4,7 @@ $silver: #E1E1E1;
   display: flex;
   flex: 0 1 60%;
   flex-direction: column;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 300;
 
   h1 {
@@ -31,7 +31,7 @@ $silver: #E1E1E1;
   color: inherit;
   align-items: center;
   justify-content: flex-start;
-  margin-top: 24px;
+  margin-top: 10px;
 
   div {
     margin-left: 15px;
@@ -40,7 +40,7 @@ $silver: #E1E1E1;
 }
 
 .profile {
-  max-width: 37vw;
+  max-width: 32vw;
   height: auto;
   border-radius: 500px;
   align-self: flex-end;

@@ -44,16 +44,18 @@ const ProfileText = () => {
         </div>
       </div>
 
-      <div className={styles.colSection}>
+      <div className={styles.colSection} id="profile-text">
         <h2>Elevator Pitch</h2>
-        <div id="profile-text">
-          I’m a senior at <span style={{ fontWeight: 700 }}>Dartmouth College</span> with several years’ experience building websites and mobile apps using the latest technologies and frameworks.
-          Currently a software engineer at the <a href="http://dali.dartmouth.edu/" target="_blank" rel="noreferrer"><span style={{ fontWeight: 700 }}>Dartmouth DALI Lab</span></a>.
+        <div>
+          I have several years’ experience building full-stack applications. I graduated with a bachelor's degree in computer science from <span style={{ fontWeight: 700 }}>Dartmouth College</span>.
+          Currently a software engineer at <a href="https://www.civicbell.com/" target="_blank" rel="noreferrer"><span style={{ fontWeight: 700 }}>CivicBell</span></a>. Pursuing a master's degree at Dartmouth, specializing in <span style={{ fontWeight: 700 }}>machine learning</span> and <span style={{ fontWeight: 700 }}>generative AI</span> research.
+        </div>
+        <div style={{ marginTop: 15 }}>
           You can access my resume <a href="/resume.pdf" target="_blank" rel="noreferrer"><span style={{ fontWeight: 700 }}>here</span></a>.
         </div>
 
         <h2>Other Interests</h2>
-        <div>I’m also on the Dartmouth <span style={{ fontWeight: 700 }}>policy debate</span> team.</div>
+        <div>I also did <span style={{ fontWeight: 700 }}>policy debate</span> at Dartmouth.</div>
       </div>
     </div>
   );
