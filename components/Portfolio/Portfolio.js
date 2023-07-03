@@ -63,11 +63,27 @@ const Portfolio = ({ inputRef }) => {
             scrolled={scrolled}
           />
           <PortfolioSlide
+            title="Orbit"
+            image={require('public/orbit.png')}
+            description="Orbit is a social media platform that analyzes a user's close friends network to find mutual connections in close geographic proximity.
+            Created a functional TestFlight prototype with the Dartmouth DALI Lab."
+            technologies={['React Native', 'Expo', 'Express.js', 'MongoDB', 'AWS S3', 'Redux']}
+            scrolled={scrolled}
+          />
+          <PortfolioSlide
             title="High Frequency Tones"
             image={require('public/frequency.png')}
             description="Precisely generate sound waves and test the limits of what you can hear."
             technologies={['React Native', 'tone.js']}
             href="https://apps.apple.com/us/app/id1511601653"
+            scrolled={scrolled}
+          />
+          <PortfolioSlide
+            title="Linguistics Games"
+            image={require('public/linguisticsgames.png')}
+            description="Linguistics Games is a mobile application created for the Dartmouth linguistics department that gamifies the process of collecting voice samples for research.
+            Developed with the Dartmouth DALI Lab."
+            technologies={['React Native', 'Express.js', 'MongoDB', 'AWS S3', 'Redux']}
             scrolled={scrolled}
           />
           <PortfolioSlide
