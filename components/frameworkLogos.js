@@ -214,6 +214,16 @@ const WordPress = () => {
   );
 };
 
+const PyTorch = () => {
+  return (
+    <svg width="85" height="85" viewBox="0 0 85 85" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="85" height="85" rx="10" fill="white" />
+      <path d="M63.667 27.1602L58.2881 32.5391C67.1201 41.3711 67.1201 55.5821 58.2881 64.2813C49.4561 73.1133 35.2451 73.1133 26.5459 64.2813C17.7139 55.4493 17.7139 41.2383 26.5459 32.5391L40.5576 18.5274L42.5498 16.5352V5.97656L21.4326 27.0938C9.67871 38.8477 9.67871 57.8399 21.4326 69.5938C33.1865 81.3477 52.1787 81.3477 63.7334 69.5938C75.4209 57.8399 75.4209 38.9805 63.667 27.1602Z" fill="#EE4C2C" />
+      <path d="M53.1084 25.8984C55.2722 25.8984 57.0264 24.1444 57.0264 21.9805C57.0264 19.8167 55.2722 18.0626 53.1084 18.0626C50.9446 18.0626 49.1904 19.8167 49.1904 21.9805C49.1904 24.1444 50.9446 25.8984 53.1084 25.8984Z" fill="#EE4C2C" />
+    </svg>
+  );
+};
+
 export {
-  Javascript, ReactIcon, ReactNative, HTML, Android, WebDesign, Python, AWS, WordPress,
+  Javascript, ReactIcon, ReactNative, HTML, Android, WebDesign, Python, AWS, WordPress, PyTorch,
 };
