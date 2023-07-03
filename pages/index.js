@@ -41,7 +41,7 @@ const Home = () => {
     <>
       <NextSeo
         title="Tyler Vergho"
-        description="Hi, I'm Tyler - a Dartmouth CS student based in California interested in web and mobile app development. Check out my projects and learn more about me."
+        description="Hi, I'm Tyler - a software engineer based in California interested in web and mobile app development. Check out my projects and learn more about me."
       />
       <motion.div className="page" style={{ backgroundColor: background }}>
         <Header accentColor={accentColor} secondaryColor={secondaryColor} links={header} />
