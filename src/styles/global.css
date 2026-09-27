@@ -75,6 +75,9 @@ body {
   color: var(--ink);
   font-family: 'EB Garamond', Garamond, Georgia, serif;
   font-weight: var(--body-weight);
+  /* Inert with this font build (no `onum` feature); EB Garamond's default
+     figures are already part-height with descenders on 3/5/7/9, which is the
+     look the spec wanted. Kept so the intent survives a future font swap. */
   font-variant-numeric: oldstyle-nums;
   font-kerning: normal;
   -webkit-font-smoothing: antialiased;
@@ -115,10 +118,28 @@ p.body {
   text-wrap: pretty;
 }
 
-/* Acronyms: AI, US */
+/* Acronyms: AI, US.
+   EB Garamond carries no real small-caps glyphs (the build has no smcp/c2sc),
+   so `font-variant-caps` would be synthesized: the browser just shrinks the
+   capitals without compensating stroke weight, and they read as a thinner,
+   foreign typeface. These are real capitals, scaled down gently and weighted
+   back up to match the colour of the surrounding text. The negative margin
+   absorbs the trailing letter-space so the following word spacing stays even. */
 .sc {
-  font-variant-caps: all-small-caps;
-  letter-spacing: 0.04em;
+  font-size: 0.84em;
+  letter-spacing: 0.06em;
+  margin-right: -0.06em;
+  font-weight: 500;
+}
+
+/* Dark mode already sets the body to 500, so the acronyms get no relative
+   weight bump there; shrink them a little less instead to keep the colour even. */
+@media (prefers-color-scheme: dark) {
+  .sc {
+    font-size: 0.88em;
+    letter-spacing: 0.05em;
+    margin-right: -0.05em;
+  }
 }
 
 /* The highlighter sweep: a gradient block grown from 0 to full width. */
