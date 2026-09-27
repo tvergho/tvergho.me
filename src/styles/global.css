@@ -35,6 +35,21 @@
     U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+/* Metric-matched fallback. Georgia runs about 14% wider than EB Garamond, so
+   while the webfont swaps in, a long h1 overflows its column on a narrow screen:
+   it wraps to two lines and snaps back once the real font arrives. size-adjust
+   scales the fallback to EB Garamond's advance widths so line breaks are the
+   same before and after the swap.
+
+   No ascent/descent overrides are needed here — every line-height on this page
+   is a unitless number, so line boxes scale with font-size rather than with the
+   font's own vertical metrics. */
+@font-face {
+  font-family: 'EB Garamond fallback';
+  src: local('Georgia');
+  size-adjust: 86%;
+}
+
 /* Light theme */
 :root {
   --paper: #FCFCFA;
@@ -74,7 +89,7 @@ body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font-family: 'EB Garamond', Garamond, Georgia, serif;
+  font-family: 'EB Garamond', 'EB Garamond fallback', Garamond, Georgia, serif;
   font-weight: var(--body-weight);
   font-variant-numeric: oldstyle-nums;
   font-kerning: normal;
