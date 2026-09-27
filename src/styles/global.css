@@ -1,0 +1,178 @@
+/* tvergho.me — "Plain letter".
+   Tokens and type scale follow the build spec; no JavaScript is involved. */
+
+/* Self-hosted EB Garamond (latin subset, from @fontsource/eb-garamond).
+   Refresh the files with `npm run sync-fonts`. */
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/eb-garamond-400.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/eb-garamond-500.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/eb-garamond-400-italic.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Light theme */
+:root {
+  --paper: #FCFCFA;
+  --ink: #1E2A38;
+  --muted: #56657A;
+  --hl: #F2E86A;
+  --selection-bg: #F2E86A;
+  --selection-ink: #1E2A38;
+  --underline: currentColor;
+  --underline-hover: currentColor;
+  --body-weight: 400;
+
+  --measure: 620px;
+  --gutter: clamp(28px, 11vw, 160px);
+}
+
+/* Dark theme — "lamplight" */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #121722;
+    --ink: #EDE3D1;
+    --muted: #A89E8D;
+    --hl: #6B4A2A;
+    --selection-bg: rgba(255, 138, 31, 0.38);
+    --selection-ink: #F5ECDC;
+    --underline: #8C7A62;
+    --underline-hover: #F0A45A;
+    --body-weight: 500; /* Garamond runs thin light-on-dark */
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--paper); }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'EB Garamond', Garamond, Georgia, serif;
+  font-weight: var(--body-weight);
+  font-variant-numeric: oldstyle-nums;
+  font-kerning: normal;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--selection-bg);
+  color: var(--selection-ink);
+}
+
+main {
+  padding: 111px var(--gutter) 120px;
+  max-width: calc(var(--measure) + 2 * var(--gutter));
+}
+
+header { margin-bottom: 52px; }
+
+h1 {
+  margin: 0;
+  font-size: 50px;
+  line-height: 1.05;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.subtitle {
+  margin: 6px 0 0;
+  font-size: 23px;
+  font-style: italic;
+  color: var(--muted);
+}
+
+p.body {
+  margin: 0 0 30px;
+  max-width: var(--measure);
+  font-size: 22px;
+  line-height: 1.62;
+  text-wrap: pretty;
+}
+
+/* Acronyms: AI, US */
+.sc {
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.04em;
+}
+
+/* The highlighter sweep: a gradient block grown from 0 to full width. */
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--underline);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  background-image: linear-gradient(var(--hl), var(--hl));
+  background-repeat: no-repeat;
+  background-position: 0 88%;
+  background-size: 0% 70%;
+  transition: background-size 420ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+a:hover,
+a:focus-visible {
+  background-size: 100% 70%;
+  text-decoration-color: var(--underline-hover);
+}
+a:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+
+.colophon {
+  margin: 44px 0 0;
+  font-size: 15px;
+  font-style: italic;
+  color: var(--muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  a { transition: none; }
+}
+
+@media (max-width: 600px) {
+  main { padding: 64px 28px 80px; }
+  header { margin-bottom: 40px; }
+  h1 { font-size: 38px; }
+  .subtitle { font-size: 19px; }
+  p.body { font-size: 19px; line-height: 1.6; margin-bottom: 24px; }
+  .colophon { font-size: 14px; margin-top: 36px; }
+}
+
+@media print {
+  :root { --paper: #fff; --ink: #000; --muted: #444; }
+  main { padding: 0; max-width: none; }
+  a { background: none; text-decoration: none; }
+  a[href^="http"]::after,
+  a[href^="mailto"]::after {
+    content: ' (' attr(href) ')';
+    font-size: 0.8em;
+    color: var(--muted);
+  }
+}
