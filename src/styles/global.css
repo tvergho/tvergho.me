@@ -1,8 +1,9 @@
 /* tvergho.me — "Plain letter".
    Tokens and type scale follow the build spec; no JavaScript is involved. */
 
-/* Self-hosted EB Garamond (latin subset, from @fontsource/eb-garamond).
-   Refresh the files with `npm run sync-fonts`. */
+/* Self-hosted EB Garamond (OFL-1.1), subsetted from the upstream OTFs so the
+   small-caps and oldstyle-figure features survive — the Google Fonts builds
+   strip them. Rebuild with `npm run build:fonts`. */
 @font-face {
   font-family: 'EB Garamond';
   font-style: normal;
@@ -75,9 +76,6 @@ body {
   color: var(--ink);
   font-family: 'EB Garamond', Garamond, Georgia, serif;
   font-weight: var(--body-weight);
-  /* Inert with this font build (no `onum` feature); EB Garamond's default
-     figures are already part-height with descenders on 3/5/7/9, which is the
-     look the spec wanted. Kept so the intent survives a future font swap. */
   font-variant-numeric: oldstyle-nums;
   font-kerning: normal;
   -webkit-font-smoothing: antialiased;
@@ -118,28 +116,12 @@ p.body {
   text-wrap: pretty;
 }
 
-/* Acronyms: AI, US.
-   EB Garamond carries no real small-caps glyphs (the build has no smcp/c2sc),
-   so `font-variant-caps` would be synthesized: the browser just shrinks the
-   capitals without compensating stroke weight, and they read as a thinner,
-   foreign typeface. These are real capitals, scaled down gently and weighted
-   back up to match the colour of the surrounding text. The negative margin
-   absorbs the trailing letter-space so the following word spacing stays even. */
+/* Acronyms: AI, US. Real small caps, from the upstream EB Garamond build —
+   see scripts/build-fonts.sh for why the fonts are subsetted here rather than
+   pulled from Google Fonts. */
 .sc {
-  font-size: 0.84em;
-  letter-spacing: 0.06em;
-  margin-right: -0.06em;
-  font-weight: 500;
-}
-
-/* Dark mode already sets the body to 500, so the acronyms get no relative
-   weight bump there; shrink them a little less instead to keep the colour even. */
-@media (prefers-color-scheme: dark) {
-  .sc {
-    font-size: 0.88em;
-    letter-spacing: 0.05em;
-    margin-right: -0.05em;
-  }
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.04em;
 }
 
 /* The highlighter sweep: a gradient block grown from 0 to full width. */

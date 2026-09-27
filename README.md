@@ -35,13 +35,26 @@ you edit the copy.
 ## Fonts
 
 EB Garamond is self-hosted from `public/fonts/` (latin subset, weights 400 and
-500 plus 400 italic), so the page makes no third-party requests. The files are
-committed so a fresh clone builds without a network fetch. To refresh them after
-bumping `@fontsource/eb-garamond`:
+500 plus 400 italic), so the page makes no third-party requests.
+
+The files are **not** taken from Google Fonts or `@fontsource`. Those builds are
+subsetted with the OpenType layout features stripped — no `smcp`/`c2sc` (small
+caps) and no `onum` (oldstyle figures), both of which the spec calls for. Asking
+for them anyway just makes the browser synthesise small caps by shrinking
+capitals, which comes out visibly thin and mismatched.
+
+Instead `scripts/build-fonts.sh` pulls the upstream OTFs from
+[octaviopardo/EBGaramond12](https://github.com/octaviopardo/EBGaramond12)
+(OFL-1.1) and subsets them here, keeping the features we use. The resulting
+`.woff2` files are committed, so a normal build never touches the network:
 
 ```bash
-npm run sync-fonts
+npm run build:fonts   # only needed to pick up an upstream font revision
 ```
+
+It needs `fonttools` with brotli (`pip install fonttools brotli`). Real small
+caps cost about 25 KB more across the three faces than the stripped builds —
+the italic is subsetted without them, since no acronyms are set in italic.
 
 ## Adding /writing later
 

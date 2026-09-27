@@ -7,12 +7,9 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "sync-fonts": "cp node_modules/@fontsource/eb-garamond/files/eb-garamond-latin-400-normal.woff2 public/fonts/eb-garamond-400.woff2 && cp node_modules/@fontsource/eb-garamond/files/eb-garamond-latin-500-normal.woff2 public/fonts/eb-garamond-500.woff2 && cp node_modules/@fontsource/eb-garamond/files/eb-garamond-latin-400-italic.woff2 public/fonts/eb-garamond-400-italic.woff2"
+    "build:fonts": "bash scripts/build-fonts.sh"
   },
   "dependencies": {
     "astro": "^5.14.1"
-  },
-  "devDependencies": {
-    "@fontsource/eb-garamond": "^5.2.5"
   }
 }
