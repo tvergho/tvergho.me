@@ -159,12 +159,6 @@ a:focus-visible {
   border-radius: 1px;
 }
 
-.colophon {
-  margin: 44px 0 0;
-  font-size: 15px;
-  font-style: italic;
-  color: var(--muted);
-}
 
 @media (prefers-reduced-motion: reduce) {
   a { transition: none; }
@@ -176,7 +170,6 @@ a:focus-visible {
   h1 { font-size: 38px; }
   .subtitle { font-size: 19px; }
   p.body { font-size: 19px; line-height: 1.6; margin-bottom: 24px; }
-  .colophon { font-size: 14px; margin-top: 36px; }
 }
 
 @media print {

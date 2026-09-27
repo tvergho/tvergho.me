@@ -13,7 +13,7 @@ npm run preview  # serve dist/
 
 ```
 src/
-  data/site.ts        title, description, and the colophon's "last revised" date
+  data/site.ts        title and description
   layouts/Base.astro  <head>, metadata, font preload
   pages/index.astro   the page copy
   pages/404.astro
@@ -25,12 +25,6 @@ public/
 
 Editing copy means editing `src/pages/index.astro`. Editing the look means
 editing the tokens at the top of `src/styles/global.css`.
-
-## Colophon date
-
-`site.lastRevised` in `src/data/site.ts` is the date in the colophon. It tracks
-when the *content* changed, not when the site was built — update it by hand when
-you edit the copy.
 
 ## Fonts
 
