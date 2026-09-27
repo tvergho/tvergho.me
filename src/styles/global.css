@@ -118,9 +118,20 @@ p.body {
 
 /* Acronyms: AI, US. Real small caps, from the upstream EB Garamond build —
    see scripts/build-fonts.sh for why the fonts are subsetted here rather than
-   pulled from Google Fonts. */
+   pulled from Google Fonts.
+
+   EB Garamond draws its small caps at 71% of cap height, which reads small
+   against a 22px measure, so they are scaled to sit at about 80%. Scaling real
+   small-cap glyphs is safe — unlike shrinking capitals, the letterforms stay
+   correct and only the weight shifts, slightly, in the direction that helps.
+
+   The explicit line-height keeps the enlarged inline box from growing the line
+   box: at 1.13em it would otherwise compute to 40px against the paragraph's
+   35.6px and open up the leading on any line holding an acronym. */
 .sc {
   font-variant-caps: all-small-caps;
+  font-size: 1.13em;
+  line-height: 1;
   letter-spacing: 0.04em;
 }
 
