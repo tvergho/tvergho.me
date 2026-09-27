@@ -33,7 +33,7 @@ EB Garamond is self-hosted from `public/fonts/` (latin subset, weights 400 and
 
 The files are **not** taken from Google Fonts or `@fontsource`. Those builds are
 subsetted with the OpenType layout features stripped — no `smcp`/`c2sc` (small
-caps) and no `onum` (oldstyle figures), both of which the spec calls for. Asking
+caps) and no `onum` (oldstyle figures), both of which this page uses. Asking
 for them anyway just makes the browser synthesise small caps by shrinking
 capitals, which comes out visibly thin and mismatched.
 
@@ -52,7 +52,7 @@ the italic is subsetted without them, since no acronyms are set in italic.
 
 ## Adding /writing later
 
-The spec calls for a writing section eventually. Nothing is built or linked yet.
+A writing section is planned. Nothing is built or linked yet.
 When it's time:
 
 1. `npx astro add mdx` (or use plain `.md`).
@@ -68,6 +68,5 @@ metadata without touching the layout.
 
 ## Notes
 
-- The old Next.js site is gone. `/resume.pdf`, `/scribble/scribble.html`, and
-  `/deepfakes-poster.pdf` now 404 by design; the old résumé is not carried over.
+- Paths from the old site are not served; they 404 by design.
 - No analytics.

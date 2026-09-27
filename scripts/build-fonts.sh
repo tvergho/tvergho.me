@@ -3,7 +3,7 @@
 #
 # Why not @fontsource or Google Fonts: their builds are subsetted with the
 # OpenType layout features stripped, including `smcp` / `c2sc` (small caps) and
-# `onum` (oldstyle figures). The spec asks for both. Upstream ships them; we
+# `onum` (oldstyle figures). This page uses both. Upstream ships them; we
 # subset the upstream OTFs ourselves and keep the features we use.
 #
 # The resulting .woff2 files are committed, so a normal build never runs this.
