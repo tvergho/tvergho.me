@@ -1,5 +1,2 @@
-User-Agent: *
-Disallow: 
+User-agent: *
 Allow: /
-Disallow: /scribble.html
-Disallow: /privacy-policy.html

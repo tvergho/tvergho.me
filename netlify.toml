@@ -1,0 +1,14 @@
+# Build configuration lives here rather than in the Netlify dashboard so it
+# travels with the repo, and deploy previews match a local build.
+#
+# The dashboard settings predate this rebuild: the old Next.js site ran
+# `next build && next export` and published `out/`. This site publishes `dist/`,
+# which is why the preview deploy failed until this file existed.
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  # Astro 5 requires ^18.17.1 || ^20.3.0 || >=22.
+  NODE_VERSION = "22"

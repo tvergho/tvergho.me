@@ -1,0 +1,200 @@
+/* tvergho.me — "Plain letter".
+   Tokens and type scale follow the build spec; no JavaScript is involved. */
+
+/* Self-hosted EB Garamond (OFL-1.1), subsetted from the upstream OTFs so the
+   small-caps and oldstyle-figure features survive — the Google Fonts builds
+   strip them. Rebuild with `npm run build:fonts`. */
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/eb-garamond-400.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/eb-garamond-500.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/eb-garamond-400-italic.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Metric-matched fallback. Georgia runs about 14% wider than EB Garamond, so
+   while the webfont swaps in, a long h1 overflows its column on a narrow screen:
+   it wraps to two lines and snaps back once the real font arrives. size-adjust
+   scales the fallback to EB Garamond's advance widths so line breaks are the
+   same before and after the swap.
+
+   No ascent/descent overrides are needed here — every line-height on this page
+   is a unitless number, so line boxes scale with font-size rather than with the
+   font's own vertical metrics. */
+@font-face {
+  font-family: 'EB Garamond fallback';
+  src: local('Georgia');
+  size-adjust: 86%;
+}
+
+/* Light theme */
+:root {
+  --paper: #FCFCFA;
+  --ink: #1E2A38;
+  --muted: #56657A;
+  --hl: #F2E86A;
+  --selection-bg: #F2E86A;
+  --selection-ink: #1E2A38;
+  --underline: currentColor;
+  --underline-hover: currentColor;
+  --body-weight: 400;
+
+  --measure: 620px;
+  --gutter: clamp(28px, 11vw, 160px);
+}
+
+/* Dark theme — "lamplight" */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #121722;
+    --ink: #EDE3D1;
+    --muted: #A89E8D;
+    --hl: #6B4A2A;
+    --selection-bg: rgba(255, 138, 31, 0.38);
+    --selection-ink: #F5ECDC;
+    --underline: #8C7A62;
+    --underline-hover: #F0A45A;
+    --body-weight: 500; /* Garamond runs thin light-on-dark */
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--paper); }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'EB Garamond', 'EB Garamond fallback', Garamond, Georgia, serif;
+  font-weight: var(--body-weight);
+  font-variant-numeric: oldstyle-nums;
+  font-kerning: normal;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--selection-bg);
+  color: var(--selection-ink);
+}
+
+main {
+  padding: 111px var(--gutter) 120px;
+  max-width: calc(var(--measure) + 2 * var(--gutter));
+}
+
+header { margin-bottom: 52px; }
+
+h1 {
+  margin: 0;
+  font-size: 50px;
+  line-height: 1.05;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.subtitle {
+  margin: 6px 0 0;
+  font-size: 23px;
+  font-style: italic;
+  color: var(--muted);
+}
+
+p.body {
+  margin: 0 0 30px;
+  max-width: var(--measure);
+  font-size: 22px;
+  line-height: 1.62;
+  text-wrap: pretty;
+}
+
+/* Acronyms: AI, US. Real small caps, from the upstream EB Garamond build —
+   see scripts/build-fonts.sh for why the fonts are subsetted here rather than
+   pulled from Google Fonts.
+
+   EB Garamond draws its small caps at 71% of cap height, which reads small
+   against a 22px measure, so they are scaled to sit at about 80%. Scaling real
+   small-cap glyphs is safe — unlike shrinking capitals, the letterforms stay
+   correct and only the weight shifts, slightly, in the direction that helps.
+
+   The explicit line-height keeps the enlarged inline box from growing the line
+   box: at 1.13em it would otherwise compute to 40px against the paragraph's
+   35.6px and open up the leading on any line holding an acronym. */
+.sc {
+  font-variant-caps: all-small-caps;
+  font-size: 1.13em;
+  line-height: 1;
+  letter-spacing: 0.04em;
+}
+
+/* The highlighter sweep: a gradient block grown from 0 to full width. */
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--underline);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  background-image: linear-gradient(var(--hl), var(--hl));
+  background-repeat: no-repeat;
+  background-position: 0 88%;
+  background-size: 0% 70%;
+  transition: background-size 420ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+a:hover,
+a:focus-visible {
+  background-size: 100% 70%;
+  text-decoration-color: var(--underline-hover);
+}
+a:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  a { transition: none; }
+}
+
+@media (max-width: 600px) {
+  main { padding: 64px 28px 80px; }
+  header { margin-bottom: 40px; }
+  h1 { font-size: 38px; }
+  .subtitle { font-size: 19px; }
+  p.body { font-size: 19px; line-height: 1.6; margin-bottom: 24px; }
+}
+
+@media print {
+  :root { --paper: #fff; --ink: #000; --muted: #444; }
+  main { padding: 0; max-width: none; }
+  a { background: none; text-decoration: none; }
+  a[href^="http"]::after,
+  a[href^="mailto"]::after {
+    content: ' (' attr(href) ')';
+    font-size: 0.8em;
+    color: var(--muted);
+  }
+}
