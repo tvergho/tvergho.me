@@ -41,5 +41,8 @@ const canonical = new URL(Astro.url.pathname, site.url).href;
   </head>
   <body>
     <slot />
+    <script>
+      import "../scripts/analytics";
+    </script>
   </body>
 </html>

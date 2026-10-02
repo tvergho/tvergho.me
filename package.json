@@ -10,6 +10,7 @@
     "build:fonts": "bash scripts/build-fonts.sh"
   },
   "dependencies": {
-    "astro": "^5.14.1"
+    "astro": "^5.14.1",
+    "posthog-js": "^1.435.7"
   }
 }

@@ -1,6 +1,6 @@
 # tvergho.me
 
-A single static page. Astro builds it; no JavaScript is shipped to the browser.
+A single static page. Astro builds it; PostHog provides browser analytics.
 
 ```bash
 npm install
@@ -69,4 +69,10 @@ metadata without touching the layout.
 ## Notes
 
 - Paths from the old site are not served; they 404 by design.
-- No analytics.
+- PostHog runs only on `tvergho.com` and `www.tvergho.com` in production builds.
+- Tracks pageviews, page leaves, and explicitly tagged project/contact/social links.
+- Session replay, automatic click capture, surveys, and person profiles are disabled.
+- IDs use session storage rather than persistent cookies; repeat visits across sessions are not linked.
+- The browser project key is public by design. The ingestion host is the US region.
+- Add `data-analytics-event` and `data-analytics-destination` to new links to track them.
+- No résumé download is currently present; tag one when it is added.
